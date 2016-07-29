@@ -40,7 +40,7 @@ html, body {
         height: initial;
         display: none; }
       .full-section .image-section .image-wrap .big-img {
-        transform: scale(3) translate(50px); }
+        transform: scale(3) translate(40%); }
 
 .color-thief-output {
   position: absolute;
