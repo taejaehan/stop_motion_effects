@@ -75,14 +75,20 @@ span{
       margin-top:-10%;
       z-index: 1000;
       img{
-        width:100%;
+        width:150%;
         height:100%;
+        transform:scale(1.0);
+        transition:1s;
         // border-radius:30%;
       }
       .target-image{
         width:initial;
         height:initial;
         display: none;
+
+      }
+      .big-img{
+        transform:scale(3.0) translate(50px);
       }
     }
   }
@@ -188,18 +194,31 @@ span{
   // }
 }
 
+$full: 100;
+$width : 100;
 $distance: 2;
 @for $i from 0 through 10 {
   .color-thief-output .color-div:nth-child(#{$i+1}){
-    left:$distance*1% * $i; 
-    top:$distance*1% * $i;
-    width:100% - 2% * $distance * $i;
-    height:100% - 2% * $distance * $i;
+    // left:$distance*1% * $i; 
+    // top:$distance*1% * $i;
+    // width:100% - 2% * $distance * $i;
+    // height:100% - 2% * $distance * $i;
+    left: (100% - $width*1%) /2;
+    top: (100% - $width*1%) /2;
+    width: $width*1%;
+    height: $width*1%;
+
   }
+  $width: $width/(1.618) + 18;
+  // @if($i >= 8) {
+  //   $width: $width/(1.618) + 10;
+  // }else{
+  //   $width: $width/(1.618) + 18;
+  // }
 }
 
-.color-thief-output .color-div:nth-child(10){
-
+.full-hover .color-thief-output{
+  opacity: 0.2;
 }
 
 

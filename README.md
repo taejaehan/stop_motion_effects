@@ -1,7 +1,5 @@
 #stop motion effects by images
 
-#Demo web using css effects
-
 ###Reference sites
 ```
 - http://cmiscm.com/ 

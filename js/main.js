@@ -11,15 +11,16 @@ $(document).ready(function () {
 
               var filename = this.href.replace(window.location.host, "").replace("http://", "");
               filename = filename.split('/')[2];
-              // console.log('filename : '  + filename);
               var template = '<div class="image-section">'
                 +'<div class="image-wrap">'
                   +'<img class="show-image" src="'+dir+filename+'" />'
                   +'<img class="target-image" src="'+dir+filename+'" />'
                 +'</div>'
                 +'<div class="color-thief-output"></div>'
-              +'</div>'
-              $('.full-section').append(template);
+              +'</div>';
+              // if(filename == 'photo4.jpg'){
+                $('.full-section').append(template);
+              // }
           });
           startMotion(); 
       }
@@ -30,6 +31,59 @@ $(document).ready(function () {
 
     var imageSections = $('.full-section .image-section');
     var currentImageNum = 0;
+    var mouseover = false;
+    var restart;
+    $('.full-section').on('mouseover', function(){
+      $(this).addClass('full-hover');
+      mouseover = true;
+    });
+    $('.full-section').on('mouseleave', function(){
+      $(this).removeClass('full-hover');
+      mouseover = false;
+      if(!disapperDiv && typeof restart !== 'undefined'){
+        restart();
+      }
+    });
+
+    var colorDiv, imageSection;
+    var disapperDiv = false;
+    $('.show-image').on('click', function(){
+      imageSection     = $(this).closest('.image-section');
+      colorDiv = imageSection.find('.color-div');
+      
+      if(imageSection.find('.show-image').hasClass('big-img')){
+        disapperDiv = false;
+        imageSection.find('.show-image').removeClass('big-img');
+        setTimeout(function(){
+          for(var i=0; i < colorDiv.length; i++){
+            showHideColor(i, false);
+          }
+        }, 1000);
+      }else{
+        disapperDiv = true;
+        for(var i=0; i < colorDiv.length; i++){
+          showHideColor(i, true);
+        }
+        if(!mouseover && typeof restart !== 'undefined'){
+          restart();
+        }
+      };
+    });
+
+    function showHideColor(i, hide){
+      setTimeout(function(){
+        console.log('i : '  + i);
+        if(hide){
+          colorDiv.eq(i).css('display', 'none');
+          if((i+1) >= colorDiv.length){
+              imageSection.find('.show-image').addClass('big-img');
+          }
+        }else{
+          colorDiv.eq(i).css('display', 'block');
+        }
+        
+      },i*10);
+    };
     var showNextImage = function() {
       var $imageSection     = imageSections.eq(currentImageNum);
       if($imageSection.length == 0){
@@ -48,7 +102,6 @@ $(document).ready(function () {
       var palette                  = colorThief.getPalette(image);
 
      
-      // console.log('palette : ' + palette);
       $imageSection.find('.color-thief-output').empty();
 
       for(var i=0; i < palette.length; i++){
@@ -62,11 +115,19 @@ $(document).ready(function () {
       $imageSection.find('.color-thief-output').append('<div class="color-div" style="background-color:rgba(255,255,255,1.0"></div>');
 
       $imageSection.css('display','block');
-      setTimeout(function(){
-        $imageSection.css('display','none');
-        showNextImage();
-      },200);
-
+      if(!mouseover && !disapperDiv){
+        setTimeout(function(){
+          $imageSection.css('display','none');
+          showNextImage();
+        },200);
+      }else{
+        restart = function(){
+            setTimeout(function(){
+            $imageSection.css('display','none');
+            showNextImage();
+          },200);
+        }
+      }
     };
 
     showNextImage();

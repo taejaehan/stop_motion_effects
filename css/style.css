@@ -31,12 +31,16 @@ html, body {
       margin-top: -10%;
       z-index: 1000; }
       .full-section .image-section .image-wrap img {
-        width: 100%;
-        height: 100%; }
+        width: 150%;
+        height: 100%;
+        transform: scale(1);
+        transition: 1s; }
       .full-section .image-section .image-wrap .target-image {
         width: initial;
         height: initial;
         display: none; }
+      .full-section .image-section .image-wrap .big-img {
+        transform: scale(3) translate(50px); }
 
 .color-thief-output {
   position: absolute;
@@ -63,64 +67,67 @@ html, body {
   height: 100%; }
 
 .color-thief-output .color-div:nth-child(2) {
-  left: 2%;
-  top: 2%;
-  width: 96%;
-  height: 96%; }
+  left: 10.09765%;
+  top: 10.09765%;
+  width: 79.8047%;
+  height: 79.8047%; }
 
 .color-thief-output .color-div:nth-child(3) {
-  left: 4%;
-  top: 4%;
-  width: 92%;
-  height: 92%; }
+  left: 16.33847%;
+  top: 16.33847%;
+  width: 67.32305%;
+  height: 67.32305%; }
 
 .color-thief-output .color-div:nth-child(4) {
-  left: 6%;
-  top: 6%;
-  width: 88%;
-  height: 88%; }
+  left: 20.1956%;
+  top: 20.1956%;
+  width: 59.60881%;
+  height: 59.60881%; }
 
 .color-thief-output .color-div:nth-child(5) {
-  left: 8%;
-  top: 8%;
-  width: 84%;
-  height: 84%; }
+  left: 22.57948%;
+  top: 22.57948%;
+  width: 54.84104%;
+  height: 54.84104%; }
 
 .color-thief-output .color-div:nth-child(6) {
-  left: 10%;
-  top: 10%;
-  width: 80%;
-  height: 80%; }
+  left: 24.05283%;
+  top: 24.05283%;
+  width: 51.89434%;
+  height: 51.89434%; }
 
 .color-thief-output .color-div:nth-child(7) {
-  left: 12%;
-  top: 12%;
-  width: 76%;
-  height: 76%; }
+  left: 24.96343%;
+  top: 24.96343%;
+  width: 50.07314%;
+  height: 50.07314%; }
 
 .color-thief-output .color-div:nth-child(8) {
-  left: 14%;
-  top: 14%;
-  width: 72%;
-  height: 72%; }
+  left: 25.52622%;
+  top: 25.52622%;
+  width: 48.94755%;
+  height: 48.94755%; }
 
 .color-thief-output .color-div:nth-child(9) {
-  left: 16%;
-  top: 16%;
-  width: 68%;
-  height: 68%; }
+  left: 25.87406%;
+  top: 25.87406%;
+  width: 48.25189%;
+  height: 48.25189%; }
 
 .color-thief-output .color-div:nth-child(10) {
-  left: 18%;
-  top: 18%;
-  width: 64%;
-  height: 64%; }
+  left: 26.08903%;
+  top: 26.08903%;
+  width: 47.82193%;
+  height: 47.82193%; }
 
 .color-thief-output .color-div:nth-child(11) {
-  left: 20%;
-  top: 20%;
-  width: 60%;
-  height: 60%; }
+  left: 26.2219%;
+  top: 26.2219%;
+  width: 47.5562%;
+  height: 47.5562%; }
+
+.full-hover .color-thief-output {
+  opacity: 0.2; }
 
 .test-div {
   width: 170px;
